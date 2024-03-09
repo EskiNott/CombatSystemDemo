@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 779514e1910a4f644992e304ade33aae, type: 3}
+  m_Name: Boss_ActionConfig_Run1
+  m_EditorClassIdentifier: 
+  AnimationName: RunForward
+  AnimationLayer: 0
+  AnimationFixedTime: 0.4
+  DefaultNextAction:
+    Command: 7
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: 57f249a6652ac4c429270d9b8d601e40, type: 2}
+  NextActionSequence:
+  - Command: 8
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: 7882951006259294fa2aae00624e2d75, type: 2}
+  - Command: 9
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: 38eb6102c27ee954283fa82c75b1340f, type: 2}
+  - Command: 6
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: 58e3e5a638f95e84596f872602992c9b, type: 2}
+  - Command: 5
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000}
+  - Command: 7
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: 57f249a6652ac4c429270d9b8d601e40, type: 2}
+  - Command: 0
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: e2b062aefd6839b489e5b97533d7c925, type: 2}
+  - Command: 1
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: 33de60d24449ec447a6e5e447247fec5, type: 2}
+  CollideControl: 2
+  ActionCommandType: 5
+  IsNeededCollideTime: 0
+  collideControlMethod: 0
+  CollideNormalizedTime1: 0
+  CollideNormalizedTime2: 1
+  AutoStuckFrame: 1
+  StuckFrameTime: 0
+  ACtype: 0
+  actionMoves: []

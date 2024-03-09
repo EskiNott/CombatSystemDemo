@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26ac2435c1123c846b6b620e46cf44bd, type: 3}
+  m_Name: Hero_AnimationConfig
+  m_EditorClassIdentifier: 
+  animations:
+  - AnimationName: Idle
+    ReleaseTime: 0.3
+    TransitionTime: 0.1
+    TimeOffset: 0
+    PlaySpeedMultiplier: 0
+    Layer: 0
+    Threshold: 0
+  - AnimationName: WalkTree
+    ReleaseTime: 0.3
+    TransitionTime: 0.1
+    TimeOffset: 0
+    PlaySpeedMultiplier: 0.5
+    Layer: 0
+    Threshold: 0.01
+  - AnimationName: RunForward
+    ReleaseTime: 0.15
+    TransitionTime: 0.1
+    TimeOffset: 0
+    PlaySpeedMultiplier: 0.3
+    Layer: 0
+    Threshold: 6
+  - AnimationName: Attack1_1
+    ReleaseTime: 0.2
+    TransitionTime: 0.1
+    TimeOffset: 0
+    PlaySpeedMultiplier: 0.3
+    Layer: 0
+    Threshold: 0
+  - AnimationName: Attack1_2
+    ReleaseTime: 0.2
+    TransitionTime: 0.1
+    TimeOffset: 0
+    PlaySpeedMultiplier: 0.3
+    Layer: 0
+    Threshold: 0
+  - AnimationName: Attack1_3
+    ReleaseTime: 0.1
+    TransitionTime: 0.1
+    TimeOffset: 0
+    PlaySpeedMultiplier: 0.3
+    Layer: 0
+    Threshold: 0
+  - AnimationName: Attack2_1
+    ReleaseTime: 0.1
+    TransitionTime: 0.1
+    TimeOffset: 0
+    PlaySpeedMultiplier: 0.3
+    Layer: 0
+    Threshold: 0
+  - AnimationName: Attack2_2
+    ReleaseTime: 0.1
+    TransitionTime: 0.1
+    TimeOffset: 0
+    PlaySpeedMultiplier: 0.3
+    Layer: 0
+    Threshold: 0
+  - AnimationName: Attack2_3
+    ReleaseTime: 0.4
+    TransitionTime: 0.1
+    TimeOffset: 0
+    PlaySpeedMultiplier: 0.3
+    Layer: 0
+    Threshold: 0
+  - AnimationName: Attack2_4
+    ReleaseTime: 0.1
+    TransitionTime: 0.1
+    TimeOffset: 0
+    PlaySpeedMultiplier: 0.3
+    Layer: 0
+    Threshold: 0
+  - AnimationName: Attack3
+    ReleaseTime: 0.3
+    TransitionTime: 0.1
+    TimeOffset: 0
+    PlaySpeedMultiplier: 0.3
+    Layer: 0
+    Threshold: 0
+  - AnimationName: KnockUp
+    ReleaseTime: 0.1
+    TransitionTime: 0.1
+    TimeOffset: 0
+    PlaySpeedMultiplier: 1
+    Layer: 0
+    Threshold: 0
+  - AnimationName: Block
+    ReleaseTime: 0.3
+    TransitionTime: 0.1
+    TimeOffset: 0
+    PlaySpeedMultiplier: 0.3
+    Layer: 0
+    Threshold: 0
+  - AnimationName: Dodge
+    ReleaseTime: 0
+    TransitionTime: 0
+    TimeOffset: 0
+    PlaySpeedMultiplier: 0
+    Layer: 0
+    Threshold: 0
+  - AnimationName: GetHitTreeLight
+    ReleaseTime: 0.1
+    TransitionTime: 0.1
+    TimeOffset: 0
+    PlaySpeedMultiplier: 1
+    Layer: 0
+    Threshold: 0
+  - AnimationName: GetHitTreeHeavy
+    ReleaseTime: 0.1
+    TransitionTime: 0.1
+    TimeOffset: 0
+    PlaySpeedMultiplier: 1
+    Layer: 0
+    Threshold: 0

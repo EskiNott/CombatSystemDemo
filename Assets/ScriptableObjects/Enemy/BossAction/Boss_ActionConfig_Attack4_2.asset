@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674853a77067b55419b4e856de036ef0, type: 3}
+  m_Name: Boss_ActionConfig_Attack4_2
+  m_EditorClassIdentifier: 
+  AnimationName: Attack4_2
+  AnimationLayer: 0
+  AnimationFixedTime: 1.1
+  DefaultNextAction:
+    Command: 7
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: f8b1fc195f9fd4840b25c68f972ea0e3, type: 2}
+  NextActionSequence:
+  - Command: 8
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: 7882951006259294fa2aae00624e2d75, type: 2}
+  - Command: 9
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: 38eb6102c27ee954283fa82c75b1340f, type: 2}
+  - Command: 7
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: 57f249a6652ac4c429270d9b8d601e40, type: 2}
+  - Command: 6
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: 58e3e5a638f95e84596f872602992c9b, type: 2}
+  - Command: 5
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: f6b138cc3a6c2ec4fa0d4739dadb51fe, type: 2}
+  - Command: 3
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: f8b1fc195f9fd4840b25c68f972ea0e3, type: 2}
+  CollideControl: 0
+  ActionCommandType: 3
+  IsNeededCollideTime: 1
+  collideControlMethod: 0
+  CollideNormalizedTime1: 0.278
+  CollideNormalizedTime2: 0.407
+  AutoStuckFrame: 1
+  StuckFrameTime: 0
+  ACtype: 1
+  actionMoves:
+  - FixedTime: 1.4
+    coordType: 0
+    MoveVector: {x: 0, y: 0, z: -0.2}
+    Duration: 0.4
+    MoveEase: 9
+  IsControlParticle: 0
+  particles:
+  - ParticleIndex: 0
+    Type: 1
+    Speed: 1
+    FixedTime: 0.2
+    LocalPositionVector: {x: 0, y: 0, z: 0}
+    LocalRotationVector: {x: 40.563, y: 92.567, z: -196.473}
+    LocalScaleVector: {x: 1, y: 1, z: 1}
+  Damage: 5
+  ToughCutting: 5
+  NormalCourageGain: 0
+  PowerCourageGain: 0
+  TimeoutNormalized: 0.3
+  AttackDistance: 2

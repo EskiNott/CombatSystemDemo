@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674853a77067b55419b4e856de036ef0, type: 3}
+  m_Name: ActionConfig_KnockUp
+  m_EditorClassIdentifier: 
+  AnimationName: KnockUp
+  AnimationLayer: 0
+  AnimationFixedTime: 1.4
+  DefaultNextAction:
+    Command: 7
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: 44d5c9b4fb205dc4bb7acd95309d9777, type: 2}
+  NextActionSequence:
+  - Command: 1
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: d6592ee1493eda14082f8a6f02680576, type: 2}
+  - Command: 0
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: 51d353b354902da419d43c47d509c9d1, type: 2}
+  - Command: 4
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: 6ee6d58f3fd924248ba67c535d7c709e, type: 2}
+  - Command: 8
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000}
+  - Command: 9
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: 789b42a27a6d86544a70f5facb2e3e03, type: 2}
+  CollideControl: 0
+  ActionCommandType: 8
+  IsNeededCollideTime: 0
+  collideControlMethod: 0
+  CollideNormalizedTime1: 0
+  CollideNormalizedTime2: 1
+  ACtype: 1
+  actionMoves:
+  - FixedTime: 0
+    coordType: 0
+    MoveVector: {x: 0, y: 4, z: 0}
+    Duration: 0
+    MoveEase: 0
+  Damage: 0
+  ToughCutting: 0
+  CourageValue: 0
+  TimeoutNormalized: 0.3

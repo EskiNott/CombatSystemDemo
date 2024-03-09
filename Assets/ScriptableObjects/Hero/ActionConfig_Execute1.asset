@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674853a77067b55419b4e856de036ef0, type: 3}
+  m_Name: ActionConfig_Execute1
+  m_EditorClassIdentifier: 
+  ActionName: Execute
+  AnimationName: Attack3
+  AnimationLayer: 0
+  AnimationFixedTime: 2
+  DefaultNextAction:
+    Command: 7
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: 44d5c9b4fb205dc4bb7acd95309d9777, type: 2}
+  NextActionSequence:
+  - Command: 1
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: d6592ee1493eda14082f8a6f02680576, type: 2}
+  - Command: 0
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: 51d353b354902da419d43c47d509c9d1, type: 2}
+  - Command: 2
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000}
+  - Command: 3
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: bbbda361525beb04fb2e67e26e0f2d2e, type: 2}
+  - Command: 4
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: c472b9dc6c7c68d42949e15d57fe88b9, type: 2}
+  - Command: 6
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: d0c0a42c580fc014a875ca847435a5d2, type: 2}
+  - Command: 5
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: f84f63e009fa6124d801d819a527959e, type: 2}
+  CollideControl: 0
+  ActionCommandType: 2
+  IsNeededCollideTime: 1
+  collideControlMethod: 0
+  CollideNormalizedTime1: 0.222
+  CollideNormalizedTime2: 1
+  AutoStuckFrame: 1
+  StuckFrameTime: 0
+  ACtype: 1
+  actionMoves: []
+  IsControlParticle: 0
+  particles: []
+  Damage: 0
+  ToughCutting: 0
+  NormalCourageGain: 0
+  PowerCourageGain: 0
+  TimeoutNormalized: 0.3
+  AttackDistance: 0

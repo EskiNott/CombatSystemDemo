@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674853a77067b55419b4e856de036ef0, type: 3}
+  m_Name: ActionConfig_Heavy4
+  m_EditorClassIdentifier: 
+  ActionName: Heavy Attack 4
+  AnimationName: Attack2_4
+  AnimationLayer: 0
+  AnimationFixedTime: 1.23
+  DefaultNextAction:
+    Command: 7
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: 44d5c9b4fb205dc4bb7acd95309d9777, type: 2}
+  NextActionSequence:
+  - Command: 1
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: d6592ee1493eda14082f8a6f02680576, type: 2}
+  - Command: 0
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: 51d353b354902da419d43c47d509c9d1, type: 2}
+  - Command: 3
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: 671c226e524a85e47902d7a5db17060d, type: 2}
+  - Command: 4
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: c472b9dc6c7c68d42949e15d57fe88b9, type: 2}
+  - Command: 8
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: 48d3b9a0ec8a09345ac527955e61c8f8, type: 2}
+  - Command: 9
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: 789b42a27a6d86544a70f5facb2e3e03, type: 2}
+  - Command: 6
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: d0c0a42c580fc014a875ca847435a5d2, type: 2}
+  - Command: 5
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: f84f63e009fa6124d801d819a527959e, type: 2}
+  CollideControl: 0
+  ActionCommandType: 4
+  IsNeededCollideTime: 1
+  collideControlMethod: 0
+  CollideNormalizedTime1: 0
+  CollideNormalizedTime2: 1
+  AutoStuckFrame: 1
+  StuckFrameTime: 0
+  ACtype: 1
+  actionMoves:
+  - FixedTime: 0.9
+    coordType: 0
+    MoveVector: {x: 0, y: 0, z: 0.6}
+    Duration: 0.3
+    MoveEase: 0
+  IsControlParticle: 0
+  particles:
+  - ParticleIndex: 0
+    Type: 1
+    Speed: 1
+    FixedTime: 0.2
+    LocalPositionVector: {x: 0, y: 0, z: 0}
+    LocalRotationVector: {x: -34.668, y: 95.176, z: -90.978}
+    LocalScaleVector: {x: 0.7, y: 0.7, z: 0.7}
+  Damage: 5
+  ToughCutting: 20
+  NormalCourageGain: 0
+  PowerCourageGain: 0
+  TimeoutNormalized: 0.3
+  AttackDistance: 0
