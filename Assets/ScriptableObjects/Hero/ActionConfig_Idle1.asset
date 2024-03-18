@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779514e1910a4f644992e304ade33aae, type: 3}
   m_Name: ActionConfig_Idle1
   m_EditorClassIdentifier: 
+  ActionName: 
   AnimationName: Idle
   AnimationLayer: 0
   AnimationFixedTime: 1.414
@@ -44,8 +45,14 @@ MonoBehaviour:
   - Command: 8
     IsBreakable: 1
     actionConfig: {fileID: 11400000, guid: 48d3b9a0ec8a09345ac527955e61c8f8, type: 2}
-  - Command: 9
-    IsBreakable: 1
-    actionConfig: {fileID: 11400000, guid: 789b42a27a6d86544a70f5facb2e3e03, type: 2}
-  Type: 1
+  CollideControl: 0
   ActionCommandType: 7
+  IsNeededCollideTime: 0
+  collideControlMethod: 0
+  CollideNormalizedTime1: 0
+  CollideNormalizedTime2: 1
+  AutoStuckFrame: 1
+  StuckFrameTime: 0
+  ACtype: 0
+  actionMoves: []
+  particles: []

@@ -47,6 +47,8 @@ public class WeaponCollider : CharacterCollider
             _am.isCourage = false;
             _am.isBlock = cc.type == ColliderType.Block;
             _am.HitPointWorld = other.ClosestPoint(transform.position);
+            _am.isExecute = _am.Host.GetActionControl().GetCurrentActionConfig().ActionCommandType
+            == CombatManager.ActionCommand.Execute;
 
             if (character.GetActionControl().IsCouraging)
             {

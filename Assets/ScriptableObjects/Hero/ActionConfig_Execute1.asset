@@ -46,13 +46,12 @@ MonoBehaviour:
   ActionCommandType: 2
   IsNeededCollideTime: 1
   collideControlMethod: 0
-  CollideNormalizedTime1: 0.222
+  CollideNormalizedTime1: 0.184
   CollideNormalizedTime2: 1
   AutoStuckFrame: 1
   StuckFrameTime: 0
   ACtype: 1
   actionMoves: []
-  IsControlParticle: 0
   particles: []
   Damage: 0
   ToughCutting: 0

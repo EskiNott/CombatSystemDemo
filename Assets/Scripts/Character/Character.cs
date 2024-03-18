@@ -42,6 +42,7 @@ public class Character : MonoBehaviour
     [field: SerializeField] public CharacterType CharType { get; protected set; }
     [field: SerializeField] protected bool debugViewing;
     [field: SerializeField] public Transform HitEffect { get; private set; }
+    [field: SerializeField] public float ExecuteDistance { get; private set; }
 
     protected ActionControl actionControl;
     protected Rigidbody characterRigidbody;

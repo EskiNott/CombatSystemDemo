@@ -25,7 +25,6 @@ public class ActionConfig : ScriptableObject
     [Header("碰撞顿帧时间")][Range(0, 1f)] public float StuckFrameTime;
     [Header("AC类型")] public ACType ACtype;
     [Header("动作中移动")] public List<ActionMove> actionMoves;
-    [Header("处理粒子")] public bool IsControlParticle;
     [Header("粒子特效列表")] public List<Particle> particles;
 
     [Serializable]
@@ -104,7 +103,6 @@ public class ActionConfig : ScriptableObject
         ACtype = ACType.Normal;
         AutoStuckFrame = true;
         StuckFrameTime = 0;
-        IsControlParticle = false;
 
     }
 

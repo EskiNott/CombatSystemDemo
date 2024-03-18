@@ -48,6 +48,7 @@ public class FiniteStateMachine : MonoBehaviour
         SetStateTable(stateTableSO);
         Init(defaultState);
     }
+
     public void Init(StateSO defaultState)
     {
         CurrentState = defaultState;

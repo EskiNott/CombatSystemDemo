@@ -11,8 +11,8 @@ public class PlayerController : EskiNottToolKit.MonoSingleton<PlayerController>
     [SerializeField] Transform playerTrans;
     [SerializeField] Transform characterCameraTrans;
     [SerializeField] CinemachineVirtualCamera characterCamera;
+    [SerializeField] CinemachineVirtualCamera characterExecuteCamera;
     [SerializeField] Camera mainCamera;
-    CinemachineBasicMultiChannelPerlin characterCameraPerlin;
     ActionControl heroActionControl;
 
     [Header("数据监测")]
@@ -38,7 +38,6 @@ public class PlayerController : EskiNottToolKit.MonoSingleton<PlayerController>
     [SerializeField] float yLockMinAngle;
     [SerializeField] bool CursorLock = true;
     [SerializeField] bool CursorHide = true;
-    [SerializeField] Timer ShakeTimer;
 
     public PlayerInputControl PlayerInput;
 
@@ -56,13 +55,6 @@ public class PlayerController : EskiNottToolKit.MonoSingleton<PlayerController>
         PlayerInput = new PlayerInputControl();
         heroActionControl = hero.GetComponent<ActionControl>();
         InputEventRegister_Awake();
-        ShakeTimer = new();
-        characterCameraPerlin = characterCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-    }
-
-    protected void Start()
-    {
-        StartScreenShake();
     }
 
     private void OnEnable()
@@ -80,7 +72,6 @@ public class PlayerController : EskiNottToolKit.MonoSingleton<PlayerController>
         InputDetect();
         CameraControl();
         MouseControl();
-        ShakeTimer.Update();
     }
 
     private void FixedUpdate()
@@ -327,29 +318,15 @@ public class PlayerController : EskiNottToolKit.MonoSingleton<PlayerController>
         foreach (var item in _colliders)
         {
             if (!item.gameObject.CompareTag("Character")) { continue; }
-            if (item.gameObject.name == "Hero") { continue; }
             if (!UIManager.IsCameraVisible(mainCamera, item.transform)) { continue; }
             float _dis = Vector3.Distance(item.transform.position, playerTrans.position);
             if (_dis >= _minDistance) { continue; }
+            if (!item.TryGetComponent<CharacterCollider>(out var _cc)) { continue; }
+            if (_cc.GetCharacter().CharType == Character.CharacterType.Hero) { continue; }
+            _result = _cc.GetCharacter();
             _minDistance = _dis;
-            _result = item.GetComponent<Character>();
         }
         return _result;
     }
 
-    private void StartScreenShake()
-    {
-        ShakeTimer.TimerEnded += ScreenShakeStop;
-    }
-
-    public void ScreenShake(Vector3 direction, float power, float duration)
-    {
-        characterCameraPerlin.m_AmplitudeGain = power;
-        characterCameraPerlin.m_PivotOffset = direction;
-        ShakeTimer.Begin(duration, Timer.TimerMode.InstantStop);
-    }
-    private void ScreenShakeStop()
-    {
-        characterCameraPerlin.m_AmplitudeGain = 0;
-    }
 }

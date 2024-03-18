@@ -70,7 +70,8 @@ public class Enemy : Character
         Quaternion _nonLockRotation = Quaternion.identity;
         if (_lookVec != Vector3.zero)
         {
-            _nonLockRotation = Quaternion.LookRotation(_lookVec);
+            Quaternion _tempLookQua = Quaternion.LookRotation(_lookVec);
+            _nonLockRotation = Quaternion.Euler(0, _tempLookQua.eulerAngles.y, 0);
         }
         CharacterRotate(_lockRotation, _nonLockRotation);
     }
@@ -115,7 +116,7 @@ public class Enemy : Character
 
     public void MoveToPosition(Vector3 targetPosition, MovingType moveType)
     {
-        TargetPositionInWorld = targetPosition;
+        TargetPositionInWorld = new Vector3(targetPosition.x, GetTransform().position.y, targetPosition.z);
         moveCommand = moveType == MovingType.Walk ? CombatManager.ActionCommand.Walk : CombatManager.ActionCommand.Run;
         StartMoving();
     }
@@ -146,7 +147,16 @@ public class Enemy : Character
         if (!(_ac == CombatManager.ActionCommand.Walk
         || _ac == CombatManager.ActionCommand.Dodge
         || _ac == CombatManager.ActionCommand.Run)) { return; }
-        base.CharacterRotate(LockDirection, NonLockDirection);
+
+        if (IsLocked())
+        {
+            thisTransform.DORotateQuaternion(LockDirection, LockedRotateFixedTime);
+        }
+        else
+        {
+            if (GetInputDirection().x == 0 && GetInputDirection().y == 0) { return; }
+            thisTransform.DORotateQuaternion(NonLockDirection, NonLockedRotateFixedTime);
+        }
     }
 
     /// <summary>
@@ -161,13 +171,14 @@ public class Enemy : Character
         foreach (var item in _colliders)
         {
             if (!item.gameObject.CompareTag("Character")) { continue; }
-            if (item.gameObject.name == "Enemy") { continue; }
             if (!IsWithinFanShapeInfiniteArea(item.gameObject)) { continue; }
 
             float _dis = Vector3.Distance(item.transform.position, thisTransform.position);
             if (_dis >= _minDistance) { continue; }
             _minDistance = _dis;
-            _result = item.GetComponent<Character>();
+            if (!item.TryGetComponent<CharacterCollider>(out var _cc)) { continue; }
+            if (_cc.GetCharacter().CharType == CharacterType.Enemy) { continue; }
+            _result = _cc.GetCharacter();
         }
         return _result;
     }

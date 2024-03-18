@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1092810749321781278}
   m_Layer: 0
   m_Name: Knee_L
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,7 +52,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -708,7 +708,7 @@ GameObject:
   - component: {fileID: 8557646152982802229}
   m_Layer: 0
   m_Name: Leg_R
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -744,7 +744,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1054,7 +1054,7 @@ GameObject:
   - component: {fileID: 8222890286628762291}
   m_Layer: 0
   m_Name: Foot_R
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1124,7 +1124,7 @@ GameObject:
   - component: {fileID: 2388924385109046768}
   m_Layer: 0
   m_Name: Leg_L
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1160,7 +1160,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1382,7 +1382,7 @@ GameObject:
   - component: {fileID: 4798378980316128418}
   m_Layer: 0
   m_Name: Spine
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1570,7 +1570,7 @@ GameObject:
   - component: {fileID: 7154938008936389623}
   m_Layer: 0
   m_Name: Forearm_L
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1607,7 +1607,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -5266,7 +5266,7 @@ GameObject:
   - component: {fileID: 6565211596943291822}
   m_Layer: 0
   m_Name: Foot_L
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5823,7 +5823,7 @@ GameObject:
   - component: {fileID: 1069486031117014365}
   m_Layer: 0
   m_Name: UpperArm_R
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5860,7 +5860,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -6708,7 +6708,7 @@ GameObject:
   - component: {fileID: 1323598498097380727}
   m_Layer: 0
   m_Name: Knee_R
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6747,7 +6747,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -6829,7 +6829,7 @@ GameObject:
   - component: {fileID: 1791577193662211915}
   m_Layer: 0
   m_Name: Forearm_R
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6866,7 +6866,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -7243,8 +7243,6 @@ GameObject:
   - component: {fileID: 68193554350159296}
   - component: {fileID: 238928977642896445}
   - component: {fileID: 3800574516966310913}
-  - component: {fileID: 7643957493340277337}
-  - component: {fileID: 2562261689235924542}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Character
@@ -7298,9 +7296,9 @@ MonoBehaviour:
   <Health>k__BackingField: 0
   <Courage>k__BackingField: 0
   <MaxHealth>k__BackingField: 40
-  <MaxCourage>k__BackingField: 300
+  <MaxCourage>k__BackingField: 10
   <Tough>k__BackingField: 0
-  <MaxTough>k__BackingField: 0
+  <MaxTough>k__BackingField: 500
   <LightHitlagTime>k__BackingField: 0
   <MaxLockDistance>k__BackingField: 12
   <MaxLockAngle>k__BackingField: 0
@@ -7308,6 +7306,7 @@ MonoBehaviour:
   <CharType>k__BackingField: 1
   debugViewing: 0
   <HitEffect>k__BackingField: {fileID: 8573662589033390708}
+  <ExecuteDistance>k__BackingField: 0.8
   <HitCount>k__BackingField: 0
   <HitCountExpiredTime>k__BackingField: 5
   <HitCountDecreaseSpeed>k__BackingField: 10
@@ -7332,7 +7331,7 @@ MonoBehaviour:
   currentAction: {fileID: 0}
   nextActionCommandTable: 
   invincible: 0
-  actionTimer:
+  <ActionTimer>k__BackingField:
     <Running>k__BackingField: 0
     releaseTime: 0
     runningTime: 0
@@ -7344,19 +7343,18 @@ MonoBehaviour:
   particleTracker:
     itemList: []
     executionStatusList: 
+  <CanExecuteLockTarget>k__BackingField: 0
   IdleAction: {fileID: 11400000, guid: 44d5c9b4fb205dc4bb7acd95309d9777, type: 2}
   DodgeColliders:
   - {fileID: 2388924385109046768}
   - {fileID: 1092810749321781278}
-  - {fileID: 6565211596943291822}
   - {fileID: 8557646152982802229}
   - {fileID: 1323598498097380727}
-  - {fileID: 8222890286628762291}
   - {fileID: 3938206227361089132}
   - {fileID: 7154938008936389623}
   - {fileID: 1069486031117014365}
   - {fileID: 1791577193662211915}
-  - {fileID: 2562261689235924542}
+  - {fileID: 4798378980316128418}
   AttackColliders:
   - {fileID: 7955886219668490901}
   BlockColliders:
@@ -7569,43 +7567,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 1
---- !u!136 &7643957493340277337
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8603313914124185867}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.0029304
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.9721512, z: 0}
---- !u!114 &2562261689235924542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8603313914124185867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a87e99b6b5345e74ab1e6f66685823e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
+  m_CollisionDetection: 3
 --- !u!1 &8765852266251947677
 GameObject:
   m_ObjectHideFlags: 0
@@ -7840,7 +7802,7 @@ GameObject:
   - component: {fileID: 3938206227361089132}
   m_Layer: 0
   m_Name: UpperArm_L
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7877,7 +7839,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -8325,7 +8287,9 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 100000, guid: 10329765d2451e540b1dae01df03c59c, type: 3}
+    - {fileID: 100004, guid: 10329765d2451e540b1dae01df03c59c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 100002, guid: 10329765d2451e540b1dae01df03c59c, type: 3}

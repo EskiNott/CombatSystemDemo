@@ -24,9 +24,6 @@ MonoBehaviour:
   - Command: 8
     IsBreakable: 1
     actionConfig: {fileID: 11400000}
-  - Command: 9
-    IsBreakable: 1
-    actionConfig: {fileID: 11400000, guid: 789b42a27a6d86544a70f5facb2e3e03, type: 2}
   CollideControl: 0
   ActionCommandType: 8
   IsNeededCollideTime: 0
@@ -42,7 +39,6 @@ MonoBehaviour:
     MoveVector: {x: 0, y: 0, z: -0.5}
     Duration: 0.5
     MoveEase: 3
-  IsControlParticle: 0
   particles: []
   Damage: 0
   ToughCutting: 0

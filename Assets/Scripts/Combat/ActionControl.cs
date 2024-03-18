@@ -6,6 +6,7 @@ using UnityEngine.VFX;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.EventSystems;
+using Unity.Mathematics;
 
 [RequireComponent(typeof(Character))]
 public class ActionControl : MonoBehaviour
@@ -14,10 +15,11 @@ public class ActionControl : MonoBehaviour
     [SerializeField] ActionConfig currentAction;
     [SerializeField] List<CombatManager.ActionCommand> nextActionCommandTable;
     [SerializeField] bool invincible;
-    [SerializeField] Timer actionTimer;
+    [field: SerializeField] public Timer ActionTimer { get; private set; }
     [field: SerializeField] public bool IsCouraging { get; private set; }
     [SerializeField] ProgressTracker<ActionConfig.ActionMove> moveTracker;
     [SerializeField] ProgressTracker<ActionConfig.Particle> particleTracker;
+    [field: SerializeField] public bool CanExecuteLockTarget { get; private set; }
 
     [Header("引用")]
     [SerializeField] ActionConfig IdleAction;
@@ -53,11 +55,11 @@ public class ActionControl : MonoBehaviour
 
     private void Start()
     {
-        actionTimer = new();
+        ActionTimer = new();
         StuckFrameTimer = new();
-        actionTimer.Reset();
-        actionTimer.TimerStarted += ActionTimerRegister_Started;
-        actionTimer.TimerRunning += ActionTimerRegister_Running;
+        ActionTimer.Reset();
+        ActionTimer.TimerStarted += ActionTimerRegister_Started;
+        ActionTimer.TimerRunning += ActionTimerRegister_Running;
         StuckFrameTimer.TimerEnded += StuckFrameOnStop;
         if (currentAction == null)
         {
@@ -69,7 +71,8 @@ public class ActionControl : MonoBehaviour
     {
         UpdateDealActionCommand();
         UpdateCourage();
-        actionTimer.Update();
+        UpdateCanExecuteTargetCheck();
+        ActionTimer.Update();
         StuckFrameTimer.Update();
     }
 
@@ -80,7 +83,7 @@ public class ActionControl : MonoBehaviour
 
     private void UpdateDealActionCommand()
     {
-        if (nextActionCommandTable.Count <= 0 && !actionTimer.IsEnd()) { return; }
+        if (nextActionCommandTable.Count <= 0 && !ActionTimer.IsEnd()) { return; }
 
         if (nextActionCommandTable.Count > 0)
         {
@@ -90,8 +93,12 @@ public class ActionControl : MonoBehaviour
                 {
                     int _index = currentAction.NextActionSequence.FindIndex(x => x.Command == _targetItem);
                     if (_index == -1) { continue; }
-                    if (!actionTimer.IsEnd() && !currentAction.NextActionSequence[_index].IsBreakable) { continue; }
-
+                    if (!ActionTimer.IsEnd() && !currentAction.NextActionSequence[_index].IsBreakable) { continue; }
+                    if (_targetItem == CombatManager.ActionCommand.Execute)
+                    {
+                        if (!CanExecuteLockTarget) { continue; }
+                        Execute();
+                    }
                     PlayAction(currentAction.NextActionSequence[_index].actionConfig);
 
                     ClearNextActionCommandTable();
@@ -100,16 +107,36 @@ public class ActionControl : MonoBehaviour
                 }
             }
 
-            if (actionTimer.IsEnd())
+            if (ActionTimer.IsEnd())
             {
                 ClearNextActionCommandTable();
                 PlayAction(currentAction.DefaultNextAction.actionConfig);
             }
         }
-        else if (actionTimer.IsEnd())
+        else if (ActionTimer.IsEnd())
         {
             PlayAction(currentAction.DefaultNextAction.actionConfig);
         }
+    }
+
+    private void Execute()
+    {
+        //Do something
+        Transform _c = character.GetTransform();
+        Transform _t = character.GetLockTarget().GetTransform();
+
+        Vector3 _dir = _t.position - _c.position;
+
+        Quaternion _look_thisToTarget = Quaternion.LookRotation(_dir, _c.up);
+        Quaternion _look_targetToThis = Quaternion.LookRotation(-_dir, _t.up);
+
+        _c.DORotateQuaternion(_look_thisToTarget, 0);
+        _t.DORotateQuaternion(_look_targetToThis, 0);
+        //_c.position = _t.position + _t.forward * 1f + _t.right * 0.5f;
+
+        if (character.CharType != Character.CharacterType.Hero) { return; }
+        //Camera Do Something
+        CameraManager.Instance.DoExecuteCamera();
     }
 
     public void PlayAction(ActionConfig actionConfig)
@@ -120,7 +147,8 @@ public class ActionControl : MonoBehaviour
         }
         SetCurrentActionConfig(actionConfig);
         animationControl.ActionConfigUpdated();
-        actionTimer.Begin(actionConfig.AnimationFixedTime, Timer.TimerMode.Continuous);
+        ColliderReset();
+        ActionTimer.Begin(actionConfig.AnimationFixedTime, Timer.TimerMode.Continuous);
         if (character.GetLockTarget() != null)
         {
             //Debug.Log(Vector3.Distance(character.GetTransform().position, character.GetLockTarget().GetTransform().position));
@@ -130,6 +158,22 @@ public class ActionControl : MonoBehaviour
             Vector3 _moveDir = character.GetMoveDirection();
             Vector3 _dir = _moveDir.x == 0 && _moveDir.y == 0 ? -transform.forward : _moveDir.normalized;
             characterRigidbody.AddForce(_dir * dodgeForceMultiplier, ForceMode.Impulse);
+        }
+    }
+
+    private void ColliderReset()
+    {
+        foreach (var item in DodgeColliders)
+        {
+            item.SetColliderEnable(true);
+        }
+        foreach (var item in AttackColliders)
+        {
+            item.SetColliderEnable(false);
+        }
+        foreach (var item in BlockColliders)
+        {
+            item.SetColliderEnable(false);
         }
     }
 
@@ -167,10 +211,10 @@ public class ActionControl : MonoBehaviour
         bool _commandWindow =
         _curACType == CombatManager.ActionCommand.HeavyAttack
         && nextCommand == CombatManager.ActionCommand.HeavyAttack
-        ? actionTimer.Progress() >= 0.4f
-        : actionTimer.Progress() >= 0;
+        ? ActionTimer.Progress() >= 0.4f
+        : ActionTimer.Progress() >= 0;
 
-        return actionTimer.Running && _commandWindow;
+        return ActionTimer.Running && _commandWindow;
     }
 
     private void ActionTimer_ColliderControl()
@@ -179,8 +223,8 @@ public class ActionControl : MonoBehaviour
         List<CharacterCollider> _interactedColliders = GetCurrentActionControlledCollides();
         if (_interactedColliders == null) { return; }
 
-        bool _whitelistCondition = actionTimer.Progress() > currentAction.CollideNormalizedTime1
-                        && actionTimer.Progress() < currentAction.CollideNormalizedTime2;
+        bool _whitelistCondition = ActionTimer.Progress() > currentAction.CollideNormalizedTime1
+                        && ActionTimer.Progress() < currentAction.CollideNormalizedTime2;
 
         bool _enable = currentAction.collideControlMethod == ActionConfig.CollideControlMethod.Whitelist ? _whitelistCondition : !_whitelistCondition;
 
@@ -206,7 +250,7 @@ public class ActionControl : MonoBehaviour
 
     private bool MoveRequirement(ActionConfig.ActionMove actionMove)
     {
-        return actionTimer.ReachProgress(actionMove.FixedTime);
+        return ActionTimer.ReachProgress(actionMove.FixedTime);
     }
 
     private void MoveAction(ActionConfig.ActionMove actionMove)
@@ -223,7 +267,7 @@ public class ActionControl : MonoBehaviour
 
     private bool ParticleRequirement(ActionConfig.Particle particle)
     {
-        return actionTimer.ReachProgress(particle.FixedTime);
+        return ActionTimer.ReachProgress(particle.FixedTime);
     }
 
     private void ParticleAction(ActionConfig.Particle particle)
@@ -372,14 +416,14 @@ public class ActionControl : MonoBehaviour
     public void StuckFrame(float FixedTime)
     {
         animationControl.Pause(true);
-        actionTimer.Pause();
+        ActionTimer.Pause();
         StuckFrameTimer.Begin(FixedTime, Timer.TimerMode.InstantStop);
     }
 
     private void StuckFrameOnStop()
     {
         animationControl.Pause(false);
-        actionTimer.Play();
+        ActionTimer.Play();
     }
 
     public void CourageOn()
@@ -401,5 +445,33 @@ public class ActionControl : MonoBehaviour
     {
         if (!IsCouraging) { return; }
         character.AddCourage(-character.CourageMinus * Time.deltaTime);
+    }
+
+    private void UpdateCanExecuteTargetCheck()
+    {
+        if (!character.IsLocked() || character.GetLockTarget() == null)
+        {
+            CanExecuteLockTarget = false;
+            return;
+        }
+
+        Character _target = character.GetLockTarget();
+        ActionControl _targetAC = _target.GetActionControl();
+
+        if (_targetAC.currentAction.ActionCommandType != CombatManager.ActionCommand.GetHitLight)
+        {
+            CanExecuteLockTarget = false;
+            return;
+        }
+
+        if (Vector3.Distance(_target.GetTransform().position, character.GetTransform().position)
+        > (character.ExecuteDistance + _target.ExecuteDistance))
+        {
+            CanExecuteLockTarget = false;
+            return;
+        }
+
+        CanExecuteLockTarget = true;
+        Debug.Log("Can Execute");
     }
 }

@@ -146,3 +146,10 @@ MonoBehaviour:
     PlaySpeedMultiplier: 1
     Layer: 0
     Threshold: 0
+  - AnimationName: Executed
+    ReleaseTime: 0.1
+    TransitionTime: 0.1
+    TimeOffset: 0
+    PlaySpeedMultiplier: 1
+    Layer: 0
+    Threshold: 0

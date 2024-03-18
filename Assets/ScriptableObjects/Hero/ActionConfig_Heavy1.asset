@@ -36,9 +36,6 @@ MonoBehaviour:
   - Command: 8
     IsBreakable: 1
     actionConfig: {fileID: 11400000, guid: 48d3b9a0ec8a09345ac527955e61c8f8, type: 2}
-  - Command: 9
-    IsBreakable: 1
-    actionConfig: {fileID: 11400000, guid: 789b42a27a6d86544a70f5facb2e3e03, type: 2}
   - Command: 6
     IsBreakable: 0
     actionConfig: {fileID: 11400000, guid: d0c0a42c580fc014a875ca847435a5d2, type: 2}
@@ -60,7 +57,6 @@ MonoBehaviour:
     MoveVector: {x: 0, y: 0, z: 0.6}
     Duration: 0.2
     MoveEase: 0
-  IsControlParticle: 0
   particles:
   - ParticleIndex: 0
     Type: 1

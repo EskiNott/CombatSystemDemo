@@ -28,12 +28,14 @@ public class UIManager : EskiNottToolKit.MonoSingleton<UIManager>
         UpdateHitCountShowCheck();
         HitCountShowTimer.Update();
         UpdateComboTable();
+        Update_CanExecuteCheck();
     }
 
     #region LockPoint
     [Header("LockPoint")]
     [SerializeField] Transform lockPoint;
     [SerializeField] Transform lockTarget;
+    [SerializeField] Image LockPointImage;
     [SerializeField] float LockPointRepositionDelay;
 
     public void LockPointEnable(bool ifEnable)
@@ -55,6 +57,21 @@ public class UIManager : EskiNottToolKit.MonoSingleton<UIManager>
         // Vector3 result = new Vector3(pos.x, pos.y, 0);
         Vector3 _result = World2Screen(lockTarget.position);
         lockPoint.DOMove(_result, LockPointRepositionDelay);
+    }
+
+    public void Update_CanExecuteCheck()
+    {
+        if (!IsLockPointEnabled() || lockTarget == null) { return; }
+        if (PlayerCharacter.GetActionControl().CanExecuteLockTarget)
+        {
+            LockPointImage.color = Color.red;
+            LockPointImage.GetComponent<RectTransform>().localScale = Vector2.one * 2.5f;
+        }
+        else
+        {
+            LockPointImage.color = Color.white;
+            LockPointImage.GetComponent<RectTransform>().localScale = Vector2.one;
+        }
     }
 
     #endregion

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674853a77067b55419b4e856de036ef0, type: 3}
   m_Name: Boss_ActionConfig_Attack4_2
   m_EditorClassIdentifier: 
+  ActionName: 
   AnimationName: Attack4_2
   AnimationLayer: 0
   AnimationFixedTime: 1.1
@@ -38,6 +39,9 @@ MonoBehaviour:
   - Command: 3
     IsBreakable: 0
     actionConfig: {fileID: 11400000, guid: f8b1fc195f9fd4840b25c68f972ea0e3, type: 2}
+  - Command: 10
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: b9e06952d3769804f8b49cbff1b7ab96, type: 2}
   CollideControl: 0
   ActionCommandType: 3
   IsNeededCollideTime: 1
@@ -53,7 +57,6 @@ MonoBehaviour:
     MoveVector: {x: 0, y: 0, z: -0.2}
     Duration: 0.4
     MoveEase: 9
-  IsControlParticle: 0
   particles:
   - ParticleIndex: 0
     Type: 1

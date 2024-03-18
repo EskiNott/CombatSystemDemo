@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779514e1910a4f644992e304ade33aae, type: 3}
   m_Name: Boss_ActionConfig_Run1
   m_EditorClassIdentifier: 
+  ActionName: 
   AnimationName: RunForward
   AnimationLayer: 0
   AnimationFixedTime: 0.4
@@ -41,6 +42,9 @@ MonoBehaviour:
   - Command: 1
     IsBreakable: 1
     actionConfig: {fileID: 11400000, guid: 33de60d24449ec447a6e5e447247fec5, type: 2}
+  - Command: 10
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: b9e06952d3769804f8b49cbff1b7ab96, type: 2}
   CollideControl: 2
   ActionCommandType: 5
   IsNeededCollideTime: 0
@@ -51,3 +55,4 @@ MonoBehaviour:
   StuckFrameTime: 0
   ACtype: 0
   actionMoves: []
+  particles: []

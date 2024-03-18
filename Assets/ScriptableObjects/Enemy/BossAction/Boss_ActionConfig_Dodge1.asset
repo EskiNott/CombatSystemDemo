@@ -36,17 +36,19 @@ MonoBehaviour:
   - Command: 5
     IsBreakable: 0
     actionConfig: {fileID: 11400000, guid: f6b138cc3a6c2ec4fa0d4739dadb51fe, type: 2}
+  - Command: 10
+    IsBreakable: 1
+    actionConfig: {fileID: 11400000, guid: b9e06952d3769804f8b49cbff1b7ab96, type: 2}
   CollideControl: 1
   ActionCommandType: 1
   IsNeededCollideTime: 1
-  collideControlMethod: 0
+  collideControlMethod: 1
   CollideNormalizedTime1: 0.196
   CollideNormalizedTime2: 0.861
   AutoStuckFrame: 1
   StuckFrameTime: 0
   ACtype: 0
   actionMoves: []
-  IsControlParticle: 0
   particles: []
   Damage: 0
   ToughCutting: 0

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 779514e1910a4f644992e304ade33aae, type: 3}
+  m_Name: Boss_ActionConfig_Executed1
+  m_EditorClassIdentifier: 
+  ActionName: 
+  AnimationName: Executed
+  AnimationLayer: 0
+  AnimationFixedTime: 4
+  DefaultNextAction:
+    Command: 7
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: 57f249a6652ac4c429270d9b8d601e40, type: 2}
+  NextActionSequence:
+  - Command: 7
+    IsBreakable: 0
+    actionConfig: {fileID: 11400000, guid: 57f249a6652ac4c429270d9b8d601e40, type: 2}
+  CollideControl: 2
+  ActionCommandType: 6
+  IsNeededCollideTime: 0
+  collideControlMethod: 0
+  CollideNormalizedTime1: 0
+  CollideNormalizedTime2: 1
+  AutoStuckFrame: 1
+  StuckFrameTime: 0
+  ACtype: 0
+  actionMoves: []
+  particles: []

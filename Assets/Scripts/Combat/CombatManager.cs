@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 
 public class CombatManager : EskiNottToolKit.MonoSingleton<CombatManager>
 {
@@ -15,6 +16,8 @@ public class CombatManager : EskiNottToolKit.MonoSingleton<CombatManager>
     [SerializeField] public Action PlayerAttackEvent;
     [SerializeField] private float ShakeScreenPowerDamageRate_Player;
     [SerializeField] private float ShakeScreenPowerDamageRate_Enemy;
+    [SerializeField] public PlayableDirector ExecuteTimeline { get; private set; }
+
     [Serializable]
     public enum ActionCommand
     {
@@ -27,7 +30,8 @@ public class CombatManager : EskiNottToolKit.MonoSingleton<CombatManager>
         Walk,
         None,
         GetHitLight,
-        GetHitHeavy
+        GetHitHeavy,
+        Executed
     }
 
     [Serializable]
@@ -39,6 +43,7 @@ public class CombatManager : EskiNottToolKit.MonoSingleton<CombatManager>
         public Vector3 HitPointWorld;
         public bool isCourage;
         public bool isBlock;
+        public bool isExecute;
     }
 
     private void Start()
@@ -97,7 +102,6 @@ public class CombatManager : EskiNottToolKit.MonoSingleton<CombatManager>
                     _am.Target.AddTough(-_hostCAC.ToughCutting);
                     _am.Host.AddCourage(_hostCAC.NormalCourageGain);
 
-
                     //DealTough
                     if (_am.Target.Tough <= 0)
                     {
@@ -117,6 +121,12 @@ public class CombatManager : EskiNottToolKit.MonoSingleton<CombatManager>
                         {
                             UIManager.Instance.ShowBreakText();
                         }
+                    }
+
+                    //DealExecute
+                    if (_hostAC.ActionCommandType == ActionCommand.Execute)
+                    {
+                        SendCommand(_am.Target, ActionCommand.Executed);
                     }
 
                     //StuckFrame
@@ -147,11 +157,11 @@ public class CombatManager : EskiNottToolKit.MonoSingleton<CombatManager>
                     {
                         if (_am.Host.CharType == Character.CharacterType.Hero)
                         {
-                            PlayerController.Instance.ScreenShake(_am.HitDirection, _hostCAC.Damage * ShakeScreenPowerDamageRate_Player, 0.1f);
+                            CameraManager.Instance.ScreenShake(_am.HitDirection, _hostCAC.Damage * ShakeScreenPowerDamageRate_Player, 0.1f);
                         }
                         else if (_am.Target.CharType == Character.CharacterType.Hero)
                         {
-                            PlayerController.Instance.ScreenShake(_am.HitDirection, _hostCAC.Damage * ShakeScreenPowerDamageRate_Enemy, 0.2f);
+                            CameraManager.Instance.ScreenShake(_am.HitDirection, _hostCAC.Damage * ShakeScreenPowerDamageRate_Enemy, 0.2f);
                         }
 
                         _am.Host.GetActionControl().StuckFrameTimer.TimerEnded -= AfterStuck;
@@ -165,9 +175,15 @@ public class CombatManager : EskiNottToolKit.MonoSingleton<CombatManager>
         }
     }
 
+    private void DealExecute()
+    {
+
+    }
+
     private void Update()
     {
         DealHitEvent();
+        DealExecute();
     }
 
     public void SendCommand(Character character, ActionCommand combatCommand)
